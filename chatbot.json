@@ -1,0 +1,127 @@
+{
+  "bot": {
+    "nombre": "MotoInfoBot",
+    "bienvenida": "🏍️ ¡Hola, {nombre}! Soy *MotoInfoBot*.\n\nEscríbeme el *nombre de cualquier moto* (ej: _Libero 125_, _MT-03_, _Dominar 400_) o envíame una *foto* y te daré su ficha técnica completa.\n\nElige una moto del catálogo rápido ({total} modelos disponibles):",
+    "procesando_texto": "🔍 Buscando ficha técnica...",
+    "procesando_foto": "📸 Analizando la imagen de la motocicleta...",
+    "no_es_moto": "🤔 No logro identificar una motocicleta en esa imagen. Intenta enviar una foto más clara donde se vea la moto completa o de perfil.",
+    "servicio_saturado": "⏳ Los servidores de análisis están teniendo mucha demanda en este momento. Reintenta enviar la consulta o la foto en unos segundos.",
+    "error_api": "⚠️ Tuve un problema consultando la información en este momento. Intenta de nuevo en unos segundos.",
+    "despedida": "👋 ¡Gracias por usar *MotoInfoBot*! Cuando necesites consultar otra motocicleta, escribe su nombre, envía una foto o usa /start. ¡Rueda seguro! 🏍️"
+  },
+  "prompt_sistema": "Eres un experto en motocicletas comerciales (con enfoque en el mercado de Colombia y Latinoamérica, aunque conoces modelos globales). Cuando el usuario te dé el nombre de una moto o te envíe una foto de una, debes identificarla y responder EXCLUSIVAMENTE siguiendo esta estructura exacta y usando formato Markdown de Telegram (usa *negritas* con un solo asterisco):\n\nLa [Marca y Modelo] es [descripción general en 2 o 3 líneas: tipo de moto, fabricante/distribuidor, uso principal y por qué destaca].\n\n*Especificaciones técnicas principales*\n- *Motor:* [tipo, tiempos, distribución, refrigeración, cilindrada].\n- *Potencia máxima:* [Hp y rpm].\n- *Torque máximo:* [Nm y rpm].\n- *Alimentación y encendido:* [carburador o inyección electrónica, tipo de arranque].\n- *Transmisión:* [velocidades, embrague, transmisión secundaria].\n- *Peso:* [kg en seco o en orden de marcha].\n- *Capacidad del tanque:* [litros o galones].\n- *Chasis y suspensiones:* [tipo de chasis, suspensión delantera y trasera].\n- *Frenos:* [freno delantero, trasero y si cuenta con ABS/CBS].\n- *Dimensiones:* [largo, ancho, alto, altura del asiento y distancia al suelo].\n\nReglas estrictas:\n1. Si el usuario envía una foto y NO hay ninguna motocicleta en ella, responde únicamente con la palabra: NO_ES_MOTO\n2. No incluyas citas numéricas como [1, 2] ni saludos innecesarios.\n3. Si algún dato exacto varía según el año del modelo, indica el estándar más reciente.",
+  "motos_catalogo": [
+    {
+      "id": "libero_125",
+      "titulo": "🏍️ Yamaha Libero 125",
+      "imagen": "imagenes/libero_125.jpg",
+      "alias": ["libero 125", "yamaha libero", "libero"],
+      "ficha": "La Yamaha Libero 125 es una motocicleta utilitaria urbana de bajo cilindraje, comercializada en Colombia por Incolmotos Yamaha (basada en la línea YBR 125). Es muy reconocida para trabajo diario, desplazamientos en ciudad y trayectos cortos o medianos por su economía y durabilidad.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, refrigerado por aire, de 124 cc.\n- *Potencia máxima:* 9.5 Hp a 7,800 rpm.\n- *Torque máximo:* 10.1 Nm a 6,000 rpm.\n- *Alimentación y encendido:* Carburador, con arranque eléctrico y de pedal.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión secundaria por cadena.\n- *Peso:* 121 kg (con aceite y tanque lleno).\n- *Capacidad del tanque:* 12 litros (3.17 galones).\n- *Chasis y suspensiones:* Tipo diamante; horquilla telescópica adelante y basculante con amortiguador trasero ajustable en 5 posiciones.\n- *Frenos:* Disco delantero y tambor trasero (según versión/modelo).\n- *Dimensiones:* 1,980 mm de largo, 745 mm de ancho y 1,080 mm de alto; altura del asiento de 780 mm y distancia al suelo de 160 mm."
+    },
+    {
+      "id": "akt_nkd_125",
+      "titulo": "⚡ AKT NKD 125",
+      "imagen": "imagenes/akt_nkd_125.jpg",
+      "alias": ["nkd 125", "akt nkd", "nkd", "ak125 nkd"],
+      "ficha": "La AKT NKD 125 es una motocicleta naked urbana ensamblada en Colombia por AKT Motos, líder en ventas por su bajo costo de adquisición, facilidad de mantenimiento y gran disponibilidad de repuestos para uso diario en ciudad.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, OHV (CGR), refrigerado por aire, de 124 cc.\n- *Potencia máxima:* 10.34 Hp a 8,000 rpm.\n- *Torque máximo:* 9.3 Nm a 7,000 rpm.\n- *Alimentación y encendido:* Carburador, CDI, arranque eléctrico y a pedal.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión secundaria por cadena.\n- *Peso:* ~105 kg en seco.\n- *Capacidad del tanque:* 2.6 galones (~9.8 litros).\n- *Chasis y suspensiones:* Cuna tubular; horquilla telescópica hidráulica adelante y doble amortiguador trasero regulable.\n- *Frenos:* Disco delantero y tambor trasero con sistema CBS (según versión).\n- *Dimensiones:* 1,900 mm de largo, distancia entre ejes de 1,270 mm, altura del asiento de 770 mm y distancia al suelo de 240 mm."
+    },
+    {
+      "id": "pulsar_ns200",
+      "titulo": "🔥 Bajaj Pulsar NS 200",
+      "imagen": "imagenes/pulsar_ns200.jpg",
+      "alias": ["pulsar ns 200", "ns 200", "bajaj ns200", "pulsar 200"],
+      "ficha": "La Bajaj Pulsar NS 200 es una motocicleta naked deportiva de media-baja cilindrada, distribuida por Grupo UMA en Colombia. Destaca por su motor de 4 válvulas y triple bujía (DTS-i), respuesta ágil y enfoque deportivo urbano y de carretera.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, 4 válvulas, refrigeración líquida, triple bujía, de 199.5 cc.\n- *Potencia máxima:* ~24.1 Hp a 9,750 rpm.\n- *Torque máximo:* ~18.5 Nm a 8,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica (FI) o carburador según versión, encendido eléctrico.\n- *Transmisión:* 6 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~152–156 kg en orden de marcha.\n- *Capacidad del tanque:* 12 litros (~3.17 galones).\n- *Chasis y suspensiones:* Perimetral de acero prensado; horquilla telescópica adelante y monoamortiguador Nitrox trasero.\n- *Frenos:* Disco delantero y disco trasero con ABS monocanal o doble canal según versión.\n- *Dimensiones:* 2,017 mm de largo, 804 mm de ancho, 1,075 mm de alto y altura del asiento de 805 mm."
+    },
+    {
+      "id": "yamaha_nmax_155",
+      "titulo": "🛵 Yamaha NMAX 155",
+      "imagen": "imagenes/yamaha_nmax_155.jpg",
+      "alias": ["nmax 155", "yamaha nmax", "nmax"],
+      "ficha": "La Yamaha NMAX 155 es un scooter urbano de corte ejecutivo comercializado por Incolmotos Yamaha. Sobresale por su motor con apertura variable de válvulas (VVA), comodidad de marcha y seguridad con frenos ABS.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, 4 válvulas con VVA, refrigeración líquida, de 155 cc.\n- *Potencia máxima:* 15.15 Hp a 8,000 rpm.\n- *Torque máximo:* 14.2 Nm a 6,500 rpm.\n- *Alimentación y encendido:* Inyección electrónica, arranque eléctrico.\n- *Transmisión:* Automática CVT con embrague centrífugo seco.\n- *Peso:* 131 kg (con aceite y tanque lleno).\n- *Capacidad del tanque:* 7.1 litros.\n- *Chasis y suspensiones:* Chasis ligero de alta rigidez; horquilla telescópica adelante y doble amortiguador trasero.\n- *Frenos:* Disco delantero y disco trasero con sistema ABS.\n- *Dimensiones:* 1,935 mm de largo, distancia entre ejes de 1,340 mm, altura del asiento de 770 mm y distancia al suelo de 125 mm."
+    },
+    {
+      "id": "honda_xr190l",
+      "titulo": "⛰️ Honda XR190L",
+      "imagen": "imagenes/honda_xr190l.jpg",
+      "alias": ["xr190l", "xr 190", "honda xr190", "honda xr 190l"],
+      "ficha": "La Honda XR190L es una motocicleta doble propósito (dual sport) pensada para combinar desplazamientos urbanos con vías destapadas y trocha ligera. Destaca por su postura erguida, bajo consumo y confiabilidad mecánica.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, OHC, refrigerado por aire, de 184 cc.\n- *Potencia máxima:* ~15.4 Hp a 8,500 rpm.\n- *Torque máximo:* ~15.7 Nm a 6,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica PGM-FI, arranque eléctrico y a pedal.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~133–136 kg en orden de marcha.\n- *Capacidad del tanque:* 12 litros.\n- *Chasis y suspensiones:* Tipo diamante; horquilla telescópica delantera de largo recorrido y basculante con monoamortiguador trasero Pro-Arm.\n- *Frenos:* Disco delantero con ABS y tambor trasero.\n- *Dimensiones:* ~2,070 mm de largo, ~820 mm de ancho, ~1,125 mm de alto y altura del asiento de ~836 mm."
+    },
+    {
+      "id": "suzuki_gn125",
+      "titulo": "🛞 Suzuki GN125",
+      "imagen": "imagenes/suzuki_gn125.jpg",
+      "alias": ["gn125", "gn 125", "suzuki gn125", "suzuki gn 125"],
+      "ficha": "La Suzuki GN125 es una motocicleta clásica/custom ligera muy conocida por su mecánica sencilla, asiento bajo y comodidad para ciudad y trayectos tranquilos.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, refrigerado por aire, de 124 cc.\n- *Potencia máxima:* ~10.3 Hp a 9,000 rpm.\n- *Torque máximo:* ~9.2 Nm a 7,000 rpm.\n- *Alimentación y encendido:* Carburador o inyección según versión, arranque eléctrico y a pedal.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~115–118 kg en orden de marcha.\n- *Capacidad del tanque:* 10.3 litros.\n- *Chasis y suspensiones:* Cuna simple; horquilla telescópica adelante y doble amortiguador trasero.\n- *Frenos:* Disco delantero (con ABS según versión) y tambor trasero.\n- *Dimensiones:* 1,945 mm de largo, 815 mm de ancho, 1,110 mm de alto y altura del asiento de 735 mm."
+    },
+    {
+      "id": "bajaj_boxer_ct100",
+      "titulo": "📦 Bajaj Boxer CT100",
+      "imagen": "imagenes/bajaj_boxer_ct100.jpg",
+      "alias": ["boxer ct100", "ct100", "boxer 100", "bajaj ct100"],
+      "ficha": "La Bajaj Boxer CT100 es una motocicleta de trabajo y economía extrema, muy popular para mensajería, reparto y movilidad diaria por su bajo consumo de combustible y resistencia.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, refrigerado por aire, de 102 cc.\n- *Potencia máxima:* ~7.6–8.1 Hp a 7,500 rpm.\n- *Torque máximo:* ~8.2 Nm a 5,500 rpm.\n- *Alimentación y encendido:* Carburador, arranque eléctrico (ES) o solo a pedal (KS) según versión.\n- *Transmisión:* 4 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~108–112 kg en orden de marcha.\n- *Capacidad del tanque:* 10.5 litros (~2.77 galones).\n- *Chasis y suspensiones:* Tubular de acero; horquilla telescópica adelante y suspensión trasera SNS (Spring-in-Spring).\n- *Frenos:* Tambor delantero y tambor trasero (con CBS según versión).\n- *Dimensiones:* 1,984 mm de largo, 750 mm de ancho, 1,090 mm de alto y altura del asiento de 825 mm."
+    },
+    {
+      "id": "tvs_raider_125",
+      "titulo": "🚀 TVS Raider 125",
+      "imagen": "imagenes/tvs_raider_125.jpg",
+      "alias": ["raider 125", "tvs raider", "raider"],
+      "ficha": "La TVS Raider 125 es una motocicleta street/naked de 125 cc orientada al uso urbano diario con estética moderna, buen rendimiento de combustible y respuesta ágil en tráfico.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, refrigerado por aire y aceite, de 124.8 cc.\n- *Potencia máxima:* ~11.2 Hp a 7,500 rpm.\n- *Torque máximo:* ~11.2 Nm a 6,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica o carburador según versión, arranque eléctrico y a pedal.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~123 kg en orden de marcha.\n- *Capacidad del tanque:* 10 litros.\n- *Chasis y suspensiones:* Tubular; horquilla telescópica adelante y monoamortiguador trasero ajustable.\n- *Frenos:* Disco delantero y tambor trasero (con sistema sincronizado SBC según versión).\n- *Dimensiones:* 2,070 mm de largo, 785 mm de ancho, 1,028 mm de alto y altura del asiento de 775 mm."
+    },
+    {
+      "id": "yamaha_fz25",
+      "titulo": "💨 Yamaha FZ 25",
+      "imagen": "imagenes/yamaha_fz25.jpg",
+      "alias": ["fz 25", "fz25", "yamaha fz 25", "fz 250"],
+      "ficha": "La Yamaha FZ 25 es una motocicleta street/naked de cuarto de litro comercializada por Incolmotos Yamaha. Destaca por su entrega de torque en bajas y medias revoluciones, confort urbano y seguridad con frenos ABS de doble canal.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, 2 válvulas, refrigerado por aire y aceite, de 249 cc.\n- *Potencia máxima:* ~20.6 Hp a 8,000 rpm.\n- *Torque máximo:* 20.0 Nm a 6,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica, arranque eléctrico.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión secundaria por cadena.\n- *Peso:* ~149–153 kg en orden de marcha.\n- *Capacidad del tanque:* 14 litros (~3.7 galones).\n- *Chasis y suspensiones:* Tipo diamante; horquilla telescópica adelante y monoamortiguador trasero Monocross.\n- *Frenos:* Disco delantero y disco trasero con ABS de doble canal.\n- *Dimensiones:* 2,015 mm de largo, 775 mm de ancho, 1,075 mm de alto y altura del asiento de 795 mm."
+    },
+    {
+      "id": "suzuki_gixxer_250",
+      "titulo": "🏁 Suzuki Gixxer 250",
+      "imagen": "imagenes/suzuki_gixxer_250.jpg",
+      "alias": ["gixxer 250", "suzuki gixxer 250", "gixxer"],
+      "ficha": "La Suzuki Gixxer 250 es una motocicleta naked deportiva de 250 cc reconocida por su sistema exclusivo de refrigeración por aceite SOCS, estabilidad en carretera y desempeño equilibrado.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, 4 válvulas, refrigerado por aceite (SOCS), de 249 cc.\n- *Potencia máxima:* 26.1 Hp a 9,300 rpm.\n- *Torque máximo:* 22.2 Nm a 7,300 rpm.\n- *Alimentación y encendido:* Inyección electrónica, arranque eléctrico.\n- *Transmisión:* 6 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* 156 kg en orden de marcha.\n- *Capacidad del tanque:* 12 litros (~3.17 galones).\n- *Chasis y suspensiones:* Tubular; horquilla telescópica adelante y monoamortiguador trasero ajustable.\n- *Frenos:* Disco delantero y disco trasero con ABS de doble canal.\n- *Dimensiones:* 2,010 mm de largo, 805 mm de ancho, 1,035 mm de alto y altura del asiento de 800 mm."
+    },
+    {
+      "id": "honda_cb190r",
+      "titulo": "🔴 Honda CB 190R",
+      "imagen": "imagenes/honda_cb190r.jpg",
+      "alias": ["cb 190r", "cb190r", "cb 190", "honda cb 190r"],
+      "ficha": "La Honda CB 190R es una motocicleta streetfighter de corte deportivo urbano, conocida por su diseño agresivo, horquilla invertida y bajo centro de gravedad para maniobrar en ciudad.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, OHC, refrigerado por aire, de 184.4 cc.\n- *Potencia máxima:* ~16.4 Hp a 8,500 rpm.\n- *Torque máximo:* ~15.5–16.3 Nm a 6,000–7,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica PGM-FI, arranque eléctrico.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~142 kg en orden de marcha.\n- *Capacidad del tanque:* 12 litros.\n- *Chasis y suspensiones:* Tipo diamante; horquilla telescópica invertida adelante y monoamortiguador trasero.\n- *Frenos:* Disco delantero (con ABS según versión) y disco trasero.\n- *Dimensiones:* 2,029 mm de largo, 739 mm de ancho, 1,041 mm de alto y altura del asiento de 771 mm."
+    },
+    {
+      "id": "bajaj_dominar_400",
+      "titulo": "🛣️ Bajaj Dominar 400",
+      "imagen": "imagenes/bajaj_dominar_400.jpg",
+      "alias": ["dominar 400", "bajaj dominar 400", "dominar", "d400"],
+      "ficha": "La Bajaj Dominar 400 es una motocicleta sport-touring diseñada para viajes en carretera y uso diario potente, equipada con suspensión invertida, embrague antirrebote y equipamiento touring.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, DOHC, 4 válvulas, refrigeración líquida, triple bujía, de 373.3 cc.\n- *Potencia máxima:* ~39.4–40 Hp a 8,800 rpm.\n- *Torque máximo:* 35 Nm a 6,500 rpm.\n- *Alimentación y encendido:* Inyección electrónica, arranque eléctrico.\n- *Transmisión:* 6 velocidades con embrague antirrebote (slipper clutch) y transmisión por cadena.\n- *Peso:* ~187–193 kg en orden de marcha.\n- *Capacidad del tanque:* 13 litros (~3.43 galones).\n- *Chasis y suspensiones:* Perimetral estampado; horquilla telescópica invertida de 43 mm adelante y monoamortiguador Nitrox trasero.\n- *Frenos:* Disco delantero de 320 mm y disco trasero de 230 mm con ABS de doble canal.\n- *Dimensiones:* 2,156 mm de largo, 863 mm de ancho, 1,243 mm de alto y altura del asiento de 800 mm."
+    },
+    {
+      "id": "yamaha_mt03",
+      "titulo": "🦂 Yamaha MT-03",
+      "imagen": "imagenes/yamaha_mt03.jpg",
+      "alias": ["mt 03", "mt03", "yamaha mt 03", "yamaha mt03"],
+      "ficha": "La Yamaha MT-03 es una motocicleta hyper-naked bicilíndrica de alto rendimiento en su segmento, famosa por su estética agresiva Dark Side of Japan, agilidad y aceleración lineal.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, bicilíndrico en línea, DOHC, 8 válvulas, refrigeración líquida, de 321 cc.\n- *Potencia máxima:* 41.4 Hp a 10,750 rpm.\n- *Torque máximo:* 29.6 Nm a 9,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica, arranque eléctrico.\n- *Transmisión:* 6 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* 168–169 kg (con aceite y tanque lleno).\n- *Capacidad del tanque:* 14 litros.\n- *Chasis y suspensiones:* Tipo diamante; horquilla telescópica invertida KYB adelante y monoamortiguador trasero.\n- *Frenos:* Disco delantero de 298 mm y disco trasero de 220 mm con ABS de doble canal.\n- *Dimensiones:* 2,090 mm de largo, 755 mm de ancho, 1,070 mm de alto y altura del asiento de 780 mm."
+    },
+    {
+      "id": "yamaha_xtz_150",
+      "titulo": "🌲 Yamaha XTZ 150",
+      "imagen": "imagenes/yamaha_xtz_150.jpg",
+      "alias": ["xtz 150", "xtz150", "yamaha xtz 150", "xtz"],
+      "ficha": "La Yamaha XTZ 150 es una motocicleta doble propósito liviana comercializada por Incolmotos Yamaha, ideal para terrenos irregulares, trocha, vías rurales y ciudad con gran suavidad de suspensión.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, SOHC, refrigerado por aire, de 149 cc.\n- *Potencia máxima:* 12.3 Hp a 7,500 rpm.\n- *Torque máximo:* 13.1 Nm a 6,000 rpm.\n- *Alimentación y encendido:* Inyección electrónica, arranque eléctrico.\n- *Transmisión:* 5 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* 131 kg (con aceite y tanque lleno).\n- *Capacidad del tanque:* 12 litros.\n- *Chasis y suspensiones:* Tipo semi-doble cuna; horquilla telescópica adelante y basculante trasero Monocross.\n- *Frenos:* Disco delantero (con ABS según versión) y tambor trasero.\n- *Dimensiones:* 2,050 mm de largo, 830 mm de ancho, 1,140 mm de alto y altura del asiento de 835 mm."
+    },
+    {
+      "id": "akt_tt_200",
+      "titulo": "🧭 AKT TT 200 Dual Sport",
+      "imagen": "imagenes/akt_tt_200.jpg",
+      "alias": ["tt 200", "akt tt 200", "tt200", "tt ds 200"],
+      "ficha": "La AKT TT 200 Dual Sport es una motocicleta todo terreno versátil ensamblada en Colombia, pensada para quienes buscan una moto económica capaz de rodar tanto en asfalto como en caminos destapados.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, OHC, refrigerado por aire, de 197 cc.\n- *Potencia máxima:* ~16.5 Hp a 8,500 rpm.\n- *Torque máximo:* ~15.5 Nm a 6,500 rpm.\n- *Alimentación y encendido:* Carburador, CDI, arranque eléctrico y a pedal.\n- *Transmisión:* 6 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~125–130 kg en seco.\n- *Capacidad del tanque:* ~2.9 galones (~11 litros).\n- *Chasis y suspensiones:* Semi-doble cuna; horquilla telescópica hidráulica de largo recorrido adelante y monoamortiguador trasero.\n- *Frenos:* Disco delantero lobulado y disco trasero.\n- *Dimensiones:* ~2,100 mm de largo, ~830 mm de ancho, ~1,160 mm de alto y altura del asiento de ~850 mm."
+    },
+    {
+      "id": "hero_eco_deluxe",
+      "titulo": "💼 Hero Eco Deluxe",
+      "imagen": "imagenes/hero_eco_deluxe.jpg",
+      "alias": ["eco deluxe", "hero eco", "hero eco deluxe", "eco 100"],
+      "ficha": "La Hero Eco Deluxe es una motocicleta utilitaria urbana de 100 cc reconocida por su altísimo rendimiento de combustible, bajo costo de mantenimiento y confiabilidad para trabajo diario.\n\n*Especificaciones técnicas principales*\n- *Motor:* 4 tiempos, OHC, refrigerado por aire, de 97.2 cc.\n- *Potencia máxima:* ~8.2 Hp a 8,000 rpm.\n- *Torque máximo:* ~8.05 Nm a 5,000 rpm.\n- *Alimentación y encendido:* Carburador o inyección según versión, arranque eléctrico y a pedal.\n- *Transmisión:* 4 velocidades, embrague multidisco húmedo y transmisión por cadena.\n- *Peso:* ~112 kg en orden de marcha.\n- *Capacidad del tanque:* 9.6 litros (~2.53 galones).\n- *Chasis y suspensiones:* Tubular doble cuna; horquilla telescópica hidráulica adelante y doble amortiguador trasero ajustable.\n- *Frenos:* Tambor delantero y tambor trasero con sistema integrado IBS.\n- *Dimensiones:* 1,965 mm de largo, 720 mm de ancho, 1,045 mm de alto y altura del asiento de 805 mm."
+    }
+  ]
+}
